@@ -66,6 +66,7 @@ class AppointmentController
 
             return redirect()
                 ->route('appointments.show', $appointment->id)
+                ->setStatusCode(303)
                 ->with('success', 'Appointment created successfully.');
         } catch (\Exception $e) {
             return back()
@@ -109,6 +110,7 @@ class AppointmentController
 
             return redirect()
                 ->route('appointments.show', $appointment->id)
+                ->setStatusCode(303)
                 ->with('success', 'Appointment updated successfully.');
         } catch (\Exception $e) {
             return back()
@@ -142,6 +144,7 @@ class AppointmentController
 
         return redirect()
             ->route('appointments.show', $appointment->id)
+            ->setStatusCode(303)
             ->with('success', 'Appointment status updated successfully.');
     }
 
@@ -153,6 +156,7 @@ class AppointmentController
 
         return redirect()
             ->route('appointments.index')
+            ->setStatusCode(303)
             ->with('success', 'Appointment deleted successfully.');
     }
 
