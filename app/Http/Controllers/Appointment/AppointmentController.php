@@ -65,7 +65,8 @@ class AppointmentController
             $appointment = $this->appointmentService->createAppointment($validated);
 
             return redirect()
-                ->route('appointments.show', $appointment->id, status: 303)
+                ->route('appointments.show', $appointment->id)
+                ->setStatusCode(303)
                 ->with('success', 'Appointment created successfully.');
         } catch (\Exception $e) {
             return back()
