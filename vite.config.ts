@@ -10,7 +10,7 @@ export default defineConfig({
         port: Number(process.env.VITE_PORT ?? 5173),
         strictPort: false,
         // When tunneling (e.g. ngrok) set VITE_TUNNEL_HOST and optional VITE_HMR_PORT.
-        allowedHosts: process.env.VITE_TUNNEL_HOST ? [process.env.VITE_TUNNEL_HOST] : [],
+        allowedHosts: process.env.VITE_TUNNEL_HOST ? [process.env.VITE_TUNNEL_HOST] : undefined,
         hmr: process.env.VITE_TUNNEL_HOST
             ? {
                   host: process.env.VITE_TUNNEL_HOST,

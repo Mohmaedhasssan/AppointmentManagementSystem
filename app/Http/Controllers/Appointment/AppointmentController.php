@@ -109,7 +109,8 @@ class AppointmentController
             $this->appointmentService->updateAppointment($appointment, $validated);
 
             return redirect()
-                ->route('appointments.show', $appointment->id, status: 303)
+                ->route('appointments.show', $appointment->id)
+                ->setStatusCode(303)
                 ->with('success', 'Appointment updated successfully.');
         } catch (\Exception $e) {
             return back()
@@ -142,7 +143,8 @@ class AppointmentController
         $this->appointmentService->updateAppointmentStatus($appointment, $validated['status']);
 
         return redirect()
-            ->route('appointments.show', $appointment->id, status: 303)
+            ->route('appointments.show', $appointment->id)
+            ->setStatusCode(303)
             ->with('success', 'Appointment status updated successfully.');
     }
 
@@ -153,7 +155,8 @@ class AppointmentController
         $appointment->delete();
 
         return redirect()
-            ->route('appointments.index', status: 303)
+            ->route('appointments.index')
+            ->setStatusCode(303)
             ->with('success', 'Appointment deleted successfully.');
     }
 
